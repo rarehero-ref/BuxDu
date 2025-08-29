@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buxoro Davlat Universiteti - Qabul</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <button class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <img src="https://buxdu.uz/images/logo/buxdu_logo_2022.svg" alt="BuxDU Logosi">
+            </div>
+            <div class="score-checker">
+                <button id="check-by-score-btn">Ball orqali yo'nalish</button>
+                <div class="score-options" id="score-options">
+                    <div class="education-forms">
+                        <button class="form-btn" data-form="kunduzgi">Kunduzgi</button>
+                        <button class="form-btn" data-form="sirtqi">Sirtqi</button>
+                        <button class="form-btn" data-form="masofaviy">Masofaviy</button>
+                        <button class="form-btn" data-form="kechki">Kechki</button>
+                    </div>
+                    <div class="score-input-container" id="score-input-container">
+                        <label for="user-score">To'plagan balingizni yozing:</label>
+                        <input type="number" id="user-score" placeholder="Masalan: 120.5">
+                        <button id="find-major-btn">Qidirish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="side-nav" id="side-nav">
+        <h3>Barcha yo'nalishlar va kirish ballari</h3>
+        <div id="majors-list">
+            </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>BUXORO DAVLAT UNIVERSITETI</h1>
+            </div>
+        </section>
+
+        <section class="results-section" id="results-section">
+            <h2 id="results-title">Tavsiya etiladigan yo'nalishlar:</h2>
+            <div id="results-container">
+                </div>
+        </section>
+
+        <section class="about-buxdu">
+            <div class="container">
+                <h2>Buxoro Davlat Universiteti Haqida</h2>
+                <p>
+                    Buxoro davlat universiteti (BuxDU) O‘zbekistonning eng qadimiy va nufuzli oliy ta’lim muassasalaridan biri hisoblanadi. Universitetga 1930-yilda asos solingan bo‘lib, dastlab Buxoro Oliy pedagogika instituti nomi bilan faoliyat boshlagan. 1992-yilda O‘zbekiston Respublikasi Prezidentining farmoni bilan universitet maqomi berilgan.
+                </p>
+                <p>
+                    Bugungi kunda BuxDU ilm-fan, ta’lim va madaniyatning yirik markaziga aylangan. Universitetda 10 dan ortiq fakultet, 50 dan ortiq kafedra mavjud bo‘lib, ularda bakalavriatning 60 dan ortiq ta’lim yo‘nalishi va magistraturaning 40 dan ortiq mutaxassisligi bo‘yicha kadrlar tayyorlanadi. Shuningdek, universitetda doktorantura va mustaqil tadqiqotchilik institutlari faoliyat yuritadi.
+                </p>
+                <p>
+                    Universitetning moddiy-texnik bazasi zamonaviy talablarga to‘liq javob beradi. O‘quv binolari, laboratoriyalar, axborot-resurs markazi, sport majmualari va talabalar turar joylari zamonaviy texnologiyalar bilan jihozlangan. Axborot-resurs markazi fondi millionlab nusxadagi o‘quv, ilmiy va badiiy adabiyotlarni o‘z ichiga oladi hamda xalqaro elektron bazalarga ulanish imkoniyatiga ega.
+                </p>
+                <p>
+                    Buxoro davlat universiteti xalqaro hamkorlikka alohida e’tibor qaratadi. Dunyoning ko‘plab yetakchi universitetlari va ilmiy markazlari bilan hamkorlik shartnomalari imzolangan. Bu esa talabalar va professor-o‘qituvchilar uchun xalqaro almashinuv dasturlarida, qo‘shma ilmiy loyihalarda va anjumanlarda ishtirok etish imkonini beradi. Universitetda xorijiy talabalar ham tahsil oladi, bu esa ta’lim muhitining baynalmilal bo‘lishini ta’minlaydi.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
