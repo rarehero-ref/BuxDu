@@ -1,306 +1,60 @@
-/* Umumiy stillar */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ... (AVVALGI KODDAGI O'ZGARUVCHILAR VA UMUMIY STILLAR) ... */
+:root {
+    --bg-color: #f4f4f4; --text-color: #333; --header-bg: #ffffff; --card-bg: #ffffff; --border-color: #ddd; --primary-color: #0056b3; --secondary-color: #007bff; --primary-text: #ffffff; --side-nav-bg: #1a2c4e; --side-nav-text: #ffffff; --side-nav-card-bg: #2a3c5e; --success-color: #28a745; --warning-color: #ffc107;
 }
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+body.dark-mode {
+    --bg-color: #121212; --text-color: #e0e0e0; --header-bg: #1e1e1e; --card-bg: #1e1e1e; --border-color: #444; --side-nav-bg: #101a2d; --side-nav-card-bg: #1c2a47;
 }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-color); color: var(--text-color); transition: background-color 0.3s, color 0.3s; line-height: 1.6;}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+h2 { font-size: 2.5rem; text-align: center; margin-bottom: 40px; color: var(--primary-color); }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px;
-}
+/* ... (HEADER, SIDE-NAV, SCORE-CHECKER STILLARI AVVALGI KOD BILAN BIR XIL) ... */
 
-/* Header stillari */
-.header {
-    background: #fff;
-    color: #333;
-    padding: 10px 20px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #ddd;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo img {
-    height: 50px;
-}
-
-/* Menyuni ochish tugmasi (Hamburger) */
-.menu-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 25px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 10;
-}
-
-.menu-toggle span {
-    width: 30px;
-    height: 3px;
-    background: #333;
-    border-radius: 10px;
-    transition: all 0.3s linear;
-}
-
-/* Yon menyu (Sidebar) */
-.side-nav {
-    height: 100%;
-    width: 320px;
-    position: fixed;
-    z-index: 1001;
-    top: 0;
-    left: -320px;
-    background-color: #1a2c4e;
-    color: #fff;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding: 20px;
-    padding-top: 80px;
-}
-
-.side-nav.active {
-    left: 0;
-}
-
-.side-nav h3 {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #4a5c7e;
-    padding-bottom: 10px;
-}
-
-#majors-list .major-item {
-    margin-bottom: 15px;
-    padding: 10px;
-    background: #2a3c5e;
-    border-radius: 5px;
-}
-
-#majors-list .major-title {
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-#majors-list .major-scores {
-    font-size: 0.9em;
-    color: #ccc;
-    padding-left: 10px;
-}
-
-/* Ball orqali yo'nalish topish bloki */
-.score-checker {
+main { padding-top: 70px; }
+.hero-image-section {
+    height: 70vh;
+    background: url('http://googleusercontent.com/file_content/2') no-repeat center center/cover;
+    background-attachment: fixed;
     position: relative;
 }
 
-#check-by-score-btn {
-    background: #0056b3;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
+/* --- STATISTIKA BO'LIMI --- */
+.stats-section { padding: 60px 0; background-color: var(--card-bg); }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
+.stat-card { padding: 20px; }
+.stat-card i { font-size: 3rem; color: var(--secondary-color); margin-bottom: 15px; }
+.stat-card h3 { font-size: 2.5rem; color: var(--text-color); }
+.stat-card p { font-size: 1.1rem; color: #777; }
+body.dark-mode .stat-card p { color: #aaa; }
 
-.score-options {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    width: 280px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
 
-.score-options.active {
-    display: block;
-}
+/* ... (RESULTS-SECTION STILLARI AVVALGI KOD BILAN BIR XIL) ... */
 
-.education-forms {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 15px;
-}
+/* --- FAKULTETLAR BO'LIMI --- */
+.faculties-section { padding: 60px 0; }
+.faculty-item { margin-bottom: 20px; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+.faculty-header { padding: 20px; background-color: var(--card-bg); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faculty-header h3 { margin: 0; color: var(--primary-color); }
+.faculty-header .icon { transition: transform 0.3s; }
+.faculty-content { padding: 20px; background-color: var(--bg-color); max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; }
+.faculty-content p { margin-bottom: 15px; font-style: italic; }
+.faculty-item.active .faculty-content { max-height: 1000px; /* Yetarlicha katta qiymat */ }
+.faculty-item.active .icon { transform: rotate(180deg); }
+.faculty-majors-list { list-style-type: none; }
+.faculty-majors-list li { padding: 8px 0; border-bottom: 1px dashed var(--border-color); }
 
-.form-btn {
-    flex-grow: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    background: #f0f0f0;
-    cursor: pointer;
-    border-radius: 4px;
-}
 
-.form-btn.selected {
-    background: #0056b3;
-    color: white;
-    border-color: #0056b3;
-}
+/* --- FAQ BO'LIMI --- */
+.faq-section { padding: 60px 0; background-color: var(--card-bg); }
+.faq-container details { margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 8px; }
+.faq-container summary { padding: 20px; cursor: pointer; font-weight: bold; position: relative; }
+.faq-container summary::after { content: '+'; position: absolute; right: 20px; font-size: 1.5rem; }
+.faq-container details[open] summary::after { content: '-'; }
+.faq-container p { padding: 0 20px 20px; }
 
-.score-input-container {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-}
+/* --- FOOTER --- */
+.footer { text-align: center; padding: 20px; margin-top: 40px; background-color: var(--side-nav-bg); color: var(--side-nav-text); }
 
-.score-input-container.active {
-    display: flex;
-}
-
-#user-score {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-}
-
-#find-major-btn {
-    padding: 10px;
-    background: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-/* Asosiy qism (Main) */
-main {
-    padding-top: 70px; /* Header balandligi */
-}
-
-.hero {
-    height: 60vh;
-    background: url('http://googleusercontent.com/file_content/0') no-repeat center center/cover;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-}
-
-/* Natijalar va Universitet haqida bo'limlar */
-.results-section,
-.about-buxdu {
-    padding: 40px 0;
-}
-
-.results-section {
-    display: none; /* Boshida yashirilgan */
-    background: #fff;
-}
-
-#results-title {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#results-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.result-card {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-.result-card h4 {
-    color: #0056b3;
-    margin-bottom: 5px;
-}
-
-.result-card p {
-    font-size: 1.1em;
-}
-
-.result-card span {
-    font-weight: bold;
-    color: #28a745;
-}
-
-.no-results {
-    text-align: center;
-    grid-column: 1 / -1;
-    color: #888;
-}
-
-.about-buxdu h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2rem;
-}
-
-.about-buxdu p {
-    margin-bottom: 15px;
-    text-align: justify;
-}
-
-/* Media Query (Responsivlik uchun) */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .header-container {
-        flex-wrap: wrap;
-    }
-
-    .logo {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .score-checker {
-        margin-left: auto;
-    }
-}
+    
