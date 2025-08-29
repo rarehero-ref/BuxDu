@@ -50,12 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
         facultiesListContainer.innerHTML = '';
 
         universityData.forEach(faculty => {
-            // Yon menyu uchun
             const facultyTitle = document.createElement('h4');
             facultyTitle.textContent = faculty.facultyName;
             majorsListContainer.appendChild(facultyTitle);
 
-            // Asosiy sahifadagi fakultetlar bloki uchun
             const facultyItem = document.createElement('div');
             facultyItem.className = 'faculty-item';
             let majorsHTML = '<ul class="faculty-majors-list">';
@@ -82,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
             facultiesListContainer.appendChild(facultyItem);
         });
 
-        // Fakultetlar uchun akkordeon funksiyasi
         document.querySelectorAll('.faculty-header').forEach(header => {
             header.addEventListener('click', () => {
                 header.parentElement.classList.toggle('active');
@@ -90,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- BALL ORQALI QIDIRISH (YANGI TUZILMAGA MOSLASHGAN) ---
+    // --- BALL ORQALI QIDIRISH ---
     findMajorBtn.addEventListener('click', () => {
         let selectedForm = document.querySelector('.form-btn.selected')?.dataset.form;
         const userScore = parseFloat(document.getElementById('user-score').value);
@@ -129,22 +126,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (majors.length === 0) {
              resultsContainer.innerHTML = `<p class="no-results">Afsuski, sizning balingiz bilan mos yo'nalish topilmadi.</p>`;
         } else {
-            majors.sort((a, b) => b.requiredScore - a.requiredScore); // Saralash
+            majors.sort((a, b) => b.requiredScore - a.requiredScore);
             majors.forEach(major => {
                 const card = document.createElement('div');
                 card.className = 'result-card';
-                // ... (qolgan natija chiqarish logikasi avvalgi kod bilan bir xil) ...
+                
+                let resultHTML = `<h4>${major.name}</h4><p><strong>Fakultet:</strong> ${major.faculty}</p>`;
+            
+                if (major.type === 'grant') {
+                    resultHTML += `<p class="result-status success">Siz <span>Grant</span> asosida o'qishga tavsiya etildingiz.</p>`;
+                    resultHTML += `<p>O'tish bali: ${major.requiredScore}</p>`;
+                } else { // kontrakt
+                    resultHTML += `<p class="result-status warning">Siz <span>Kontrakt</span> asosida o'qishga tavsiya etildingiz.</p>`;
+                    resultHTML += `<p>O'tish bali: ${major.requiredScore}</p>`;
+                    if (major.grantScore) {
+                        resultHTML += `<p style="font-size:0.9em; opacity:0.8;">(Grant bali: ${major.grantScore})</p>`;
+                    }
+                }
+                card.innerHTML = resultHTML;
+                resultsContainer.appendChild(card);
             });
         }
         resultsSection.scrollIntoView({ behavior: 'smooth' });
-        // ... (boshqa kodlar avvalgidek)
     }
 
-    // --- BOSHQA FUNKSIYALAR (MAVZU O'ZGARTIRISH, MENYUNI OCHISH VA H.K.) ---
-    // Bu qismdagi kodlar o'zgarishsiz qoladi, shuning uchun ularni avvalgi javobdan ko'chirib olishingiz mumkin.
-    // Men eng muhimlarini shu yerga qayta joylayman:
-    
-    // Mavzu (Theme)
+    // --- BOSHQA FUNKSIYALAR ---
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -154,13 +160,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (body.classList.contains('dark-mode')) { themeToggle.textContent = '☀️'; localStorage.setItem('theme', 'dark'); } else { themeToggle.textContent = '🌙'; localStorage.setItem('theme', 'light'); }
     });
 
-    // Menyuni ochish
     document.getElementById('menu-toggle').addEventListener('click', () => sideNav.classList.toggle('active'));
 
-    // Ball tekshirish oynasini ochish
-    document.getElementById('check-by-score-btn').addEventListener('click', () => document.getElementById('score-options').classList.toggle('active'));
+    document.getElementById('check-by-score-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.getElementById('score-options').classList.toggle('active');
+    });
 
-    // Ta'lim shaklini tanlash
     document.querySelectorAll('.form-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.form-btn').forEach(b => b.classList.remove('selected'));
@@ -168,7 +174,14 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('score-input-container').classList.add('active');
         });
     });
+    
+    document.addEventListener('click', (e) => {
+        const scoreOptions = document.getElementById('score-options');
+        const scoreBtn = document.getElementById('check-by-score-btn');
+        if (!scoreOptions.contains(e.target) && !scoreBtn.contains(e.target)) {
+            scoreOptions.classList.remove('active');
+        }
+    });
 
-    // Sahifa yuklanganda barcha ro'yxatlarni to'ldirish
     populateLists();
 });
