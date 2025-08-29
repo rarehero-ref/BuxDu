@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buxoro Davlat Universiteti - Qabul</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="header">
         <div class="header-container">
-            <button class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <button class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></button>
             <div class="logo">
-                <img src="https://buxdu.uz/images/logo/buxdu_logo_2022.svg" alt="BuxDU Logosi">
+                <img src="http://googleusercontent.com/file_content/1" alt="BuxDU Logosi">
+            </div>
+            <div class="header-center">
+                <div class="theme-switcher">
+                    <button id="theme-toggle" title="Mavzuni o'zgartirish">☀️</button>
+                </div>
             </div>
             <div class="score-checker">
                 <button id="check-by-score-btn">Ball orqali yo'nalish</button>
@@ -38,43 +40,82 @@
     </header>
 
     <nav class="side-nav" id="side-nav">
-        <h3>Barcha yo'nalishlar va kirish ballari</h3>
+        <h3>Fakultetlar va Yo'nalishlar</h3>
         <div id="majors-list">
             </div>
     </nav>
 
     <main>
-        <section class="hero">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1>BUXORO DAVLAT UNIVERSITETI</h1>
+        <section class="hero-image-section">
+            </section>
+        
+        <section class="stats-section">
+            <div class="container">
+                <h2>Universitet raqamlarda</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>25,000+</h3>
+                        <p>Talabalar</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>1,000+</h3>
+                        <p>Professor-o'qituvchilar</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-building-columns"></i>
+                        <h3>13</h3>
+                        <p>Fakultetlar</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-globe"></i>
+                        <h3>50+</h3>
+                        <p>Xalqaro hamkorlar</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="results-section" id="results-section">
-            <h2 id="results-title">Tavsiya etiladigan yo'nalishlar:</h2>
-            <div id="results-container">
-                </div>
+             <div class="container">
+                <h2 id="results-title">Tavsiya etiladigan yo'nalishlar:</h2>
+                <div id="results-container"></div>
+            </div>
         </section>
 
-        <section class="about-buxdu">
+        <section class="faculties-section" id="faculties">
+             <div class="container">
+                <h2>Fakultetlar</h2>
+                <div id="faculties-list">
+                    </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
             <div class="container">
-                <h2>Buxoro Davlat Universiteti Haqida</h2>
-                <p>
-                    Buxoro davlat universiteti (BuxDU) O‘zbekistonning eng qadimiy va nufuzli oliy ta’lim muassasalaridan biri hisoblanadi. Universitetga 1930-yilda asos solingan bo‘lib, dastlab Buxoro Oliy pedagogika instituti nomi bilan faoliyat boshlagan. 1992-yilda O‘zbekiston Respublikasi Prezidentining farmoni bilan universitet maqomi berilgan.
-                </p>
-                <p>
-                    Bugungi kunda BuxDU ilm-fan, ta’lim va madaniyatning yirik markaziga aylangan. Universitetda 10 dan ortiq fakultet, 50 dan ortiq kafedra mavjud bo‘lib, ularda bakalavriatning 60 dan ortiq ta’lim yo‘nalishi va magistraturaning 40 dan ortiq mutaxassisligi bo‘yicha kadrlar tayyorlanadi. Shuningdek, universitetda doktorantura va mustaqil tadqiqotchilik institutlari faoliyat yuritadi.
-                </p>
-                <p>
-                    Universitetning moddiy-texnik bazasi zamonaviy talablarga to‘liq javob beradi. O‘quv binolari, laboratoriyalar, axborot-resurs markazi, sport majmualari va talabalar turar joylari zamonaviy texnologiyalar bilan jihozlangan. Axborot-resurs markazi fondi millionlab nusxadagi o‘quv, ilmiy va badiiy adabiyotlarni o‘z ichiga oladi hamda xalqaro elektron bazalarga ulanish imkoniyatiga ega.
-                </p>
-                <p>
-                    Buxoro davlat universiteti xalqaro hamkorlikka alohida e’tibor qaratadi. Dunyoning ko‘plab yetakchi universitetlari va ilmiy markazlari bilan hamkorlik shartnomalari imzolangan. Bu esa talabalar va professor-o‘qituvchilar uchun xalqaro almashinuv dasturlarida, qo‘shma ilmiy loyihalarda va anjumanlarda ishtirok etish imkonini beradi. Universitetda xorijiy talabalar ham tahsil oladi, bu esa ta’lim muhitining baynalmilal bo‘lishini ta’minlaydi.
-                </p>
+                <h2>Ko'p beriladigan savollar</h2>
+                <div class="faq-container">
+                    <details>
+                        <summary>Qabul jarayonlari qachon boshlanadi?</summary>
+                        <p>Odatda, qabul jarayonlari har yili iyun oyida boshlanib, iyul oyining oxirigacha davom etadi. Aniq sanalar Davlat Test Markazi tomonidan e'lon qilinadi.</p>
+                    </details>
+                    <details>
+                        <summary>Yotoqxona uchun qanday ariza berish kerak?</summary>
+                        <p>Universitetga qabul qilinganingizdan so'ng, yotoqxonada joy olish uchun dekanatingizga ariza bilan murojaat qilishingiz kerak. Odatda, birinchi navbatda uzoq viloyatlardan kelgan talabalar joy bilan ta'minlanadi.</p>
+                    </details>
+                    <details>
+                        <summary>Ikkinchi mutaxassislik uchun qabul bormi?</summary>
+                        <p>Ha, Buxoro Davlat Universitetida ikkinchi mutaxassislik uchun sirtqi va kechki ta'lim shakllarida qabul mavjud. Bu bo'yicha ma'lumotlarni universitet rasmiy saytidan olishingiz mumkin.</p>
+                    </details>
+                </div>
             </div>
         </section>
     </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Buxoro Davlat Universiteti. Barcha huquqlar himoyalangan.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
